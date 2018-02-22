@@ -9,7 +9,7 @@ class CashRegister
   end
 
   def add_item(title, price, quantity = 1)
-      self.total += price * quantity
+      @total += price * quantity
       quantity.times do
         @item << title
       end
@@ -19,7 +19,7 @@ class CashRegister
     if self.discount == nil
       return "There is no discount to apply."
     else
-      self.total = (@total * (1 - self.discount.to_f/100)).to_i
+      @total = (self.total * (1 - self.discount.to_f/100)).to_i
       return "After the discount, the total comes to $#{@total}."
     end
   end
